@@ -141,7 +141,7 @@ userRouter.post('/reset-password/:id/:token', (req, res) => {
             bcrypt.hash(password, 10)
                 .then(hash => {
                     StudentModel.findByIdAndUpdate({ _id: id }, { password: hash })
-                        .then(success => res.send({ Status: "Success" }))
+                        .then(success => res.send({ Status: success }))
                         .catch(err => res.send({ Status: err }))
                 })
                 .catch(err => res.send({ Status: err }))
