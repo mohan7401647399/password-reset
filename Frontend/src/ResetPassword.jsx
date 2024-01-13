@@ -8,9 +8,9 @@ export default function ResetPassword() {
     const { id, token } = useParams();
 
     axios.defaults.withCredentials = true;
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.post(`https://password-reset-odmp.onrender.com/reset-password/${id}/${token}`, { password })
+        await axios.post(`https://password-reset-odmp.onrender.com/reset-password/${id}/${token}`, { password })
             .then(res => {
                 if (res.data.Status === "Success") {
                     navigate('/login')
