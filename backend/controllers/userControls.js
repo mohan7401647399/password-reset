@@ -107,7 +107,7 @@ userRouter.post('/forgot-password', (req, res) => {
                 });
                 var mailOptions = {
                     from: process.env.USER,
-                    to: 'mohanb.a1996@gmail.com',
+                    to: email,
                     subject: 'Reset Password Link',
                     html: `https://password-reset-odmp.onrender.com/reset-password/${user._id}/${token}`,
                 };
