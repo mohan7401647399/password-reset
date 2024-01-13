@@ -132,8 +132,12 @@ userRouter.post('/forgot-password', (req, res) => {
 //reset-password
 userRouter.post('/reset-password/:id/:token', (req, res) => {
     const { id, token } = req.params
-    const { password } = req.body
-
+    const { password } = req.body;
+    const user = StudentModel.findOne({_id:id});
+    
+    if(!user){
+        return res.json({ status:"User does not exist"})
+    }
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
         if (err) {
             return res.json({ Status: "Error with token" })
