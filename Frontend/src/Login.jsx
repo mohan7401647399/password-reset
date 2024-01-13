@@ -9,9 +9,9 @@ export default function Login() {
     const [password, setPassword] = useState();
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post("https://password-reset-odmp.onrender.com/login", { email, password })
+        await axios.post("https://password-reset-odmp.onrender.com/login", { email, password })
             .then(result => {
                 console.log(result)
                 // if (result.data === "success") {
@@ -54,8 +54,6 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-
         </>
-
     )
 }
