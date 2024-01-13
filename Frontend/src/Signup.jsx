@@ -10,9 +10,9 @@ export default function Signup() {
     const [password, setPassword] = useState();
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post("https://password-reset-odmp.onrender.com/register", { name, email, password })
+        await axios.post("https://password-reset-odmp.onrender.com/register", { name, email, password })
             .then(result => {
                 console.log(result)
                 navigate('/login')
