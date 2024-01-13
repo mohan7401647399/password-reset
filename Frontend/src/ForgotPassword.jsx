@@ -7,9 +7,9 @@ export default function ForgotPassword() {
     const navigate = useNavigate()
 
     axios.defaults.withCredentials = true;
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.post('https://password-reset-odmp.onrender.com/forgot-password', { email })
+        await axios.post('https://password-reset-odmp.onrender.com/forgot-password', { email })
             .then(res => {
                 if (res.data.Status === "Success") {
                     navigate('/login')
