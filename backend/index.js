@@ -22,7 +22,8 @@ app.use(bodyparser.json());
 db();
 
 // Allowing all origins in Cross-Origin Resource Sharing (CORS) can pose a security risk and is generally not recommended
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 // controllers route
 app.use(routes)
