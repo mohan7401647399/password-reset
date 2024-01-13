@@ -109,7 +109,7 @@ userRouter.post('/forgot-password', (req, res) => {
                     from: process.env.USER,
                     to: email,
                     subject: 'Reset Password Link',
-                    html: `https://password-reset-odmp.onrender.com/reset-password/${user._id}/${token}`,
+                    html: `https://keen-melomakarona-8c650c.netlify.app/reset-password/${user._id}/${token}`,
                 };
 
                 transporter.sendMail(mailOptions, function (error, info) {
