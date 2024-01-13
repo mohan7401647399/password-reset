@@ -15,7 +15,7 @@ export default function ResetPassword() {
                 if (res.data.Status === "Success") {
                     navigate('/login')
                 }
-            }).catch(err => console.log(err.message))
+            }).catch(err => console.log(err))
     }
 
     return (
