@@ -12,7 +12,8 @@ export default function ResetPassword() {
         e.preventDefault()
         await axios.post(`https://password-reset-odmp.onrender.com/reset-password/${id}/${token}`, { password })
             .then(res => {
-                if (res.data.Status === "Success") {
+                if (res.data.Status === 200) {
+                    console.log(res);
                     navigate('/login')
                 }
             }).catch(err => console.log(err))
