@@ -31,6 +31,7 @@ export default function ForgotPassword() {
                                         <strong>Email</strong>
                                     </label>
                                     <input
+                                        required
                                         type="email"
                                         placeholder="Enter Email"
                                         autoComplete="off"
