@@ -34,13 +34,13 @@ export default function Login() {
                                         <label htmlFor="email">
                                             <strong>Email</strong>
                                         </label>
-                                        <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Enter Email' autoComplete='off' name='email' className='form-control rounded-0' />
+                                        <input required onChange={(e) => setEmail(e.target.value)} type="email" placeholder='Enter Email' autoComplete='off' name='email' className='form-control rounded-0' />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="email">
                                             <strong>Password</strong>
                                         </label>
-                                        <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter password' name='password' className='form-control rounded-0' />
+                                        <input required onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Enter password' name='password' className='form-control rounded-0' />
                                     </div>
                                     <button type='submit' className='btn btn-success w-100 rounded-0'>
                                         Login
