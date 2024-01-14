@@ -51,6 +51,14 @@ userRouter.post("/login", async (req, res) => {
 
     try {
         const response = await StudentModel.findOne({ email: email });
+        console.log(response.email);
+        console.log(email);
+        if (response.email !== email) {
+            return res.status(400).json({
+                  success: false,
+                    message: "User does not exist",
+                 })
+        }
         if (email && password)
             if (response && response._id) {
                 bcrypt.compare(password, response.password).then(function (result) {
