@@ -91,10 +91,10 @@ userRouter.post("/login", async (req, res) => {
 });
 
 //forgot-password
-userRouter.post('/forgot-password', (req, res) => {
+userRouter.post('/forgot-password',async (req, res) => {
     try {
         const { email } = req.body;
-        StudentModel.findOne({ email: email })
+        await StudentModel.findOne({ email: email })
             .then(user => {
                 console.log(user);
                 if (!user) {
@@ -138,10 +138,10 @@ userRouter.post('/forgot-password', (req, res) => {
 });
 
 //reset-password
-userRouter.post('/reset-password/:id/:token', (req, res) => {
+userRouter.post('/reset-password/:id/:token',async (req, res) => {
     const { id, token } = req.params
     const { password } = req.body;
-    const user = StudentModel.findOne({_id:id});
+    const user = await StudentModel.findOne({_id:id});
     
     if(!user){
         return res.json({ status:"User does not exist"})
@@ -152,7 +152,7 @@ userRouter.post('/reset-password/:id/:token', (req, res) => {
         } else {
             bcrypt.hash(password, 10)
                 .then(hash => {
-                    StudentModel.findByIdAndUpdate({ _id: id }, { password: hash })
+                    await StudentModel.findByIdAndUpdate({ _id: id }, { password: hash })
                         .then(success => res.send({ Status: success }))
                         .catch(err => res.send({ Status: err }))
                 })
