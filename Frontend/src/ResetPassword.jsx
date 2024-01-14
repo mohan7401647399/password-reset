@@ -31,6 +31,7 @@ export default function ResetPassword() {
                                         <strong>New Password</strong>
                                     </label>
                                     <input
+                                        required
                                         type="password"
                                         placeholder="Enter a new Password"
                                         autoComplete="off"
