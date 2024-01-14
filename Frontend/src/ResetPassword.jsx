@@ -21,7 +21,7 @@ export default function ResetPassword() {
     return (
         <div className="container-fluid vh-100 bg-secondary">
             <div className="row justify-content-center">
-                <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <div className="card mt-5">
                         <div className='bg-white p-3 rounded w-auto bg-info'>
                             <h4 className='d-flex align-content-center justify-content-center'>Reset Password</h4>
