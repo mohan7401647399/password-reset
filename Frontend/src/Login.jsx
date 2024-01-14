@@ -25,8 +25,8 @@ export default function Login() {
         <>
             <div className='container-fluid'>
                 <div className="row">
-                    <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div className='d-flex justify-content-center align-items-center bg-secondary vh-100 m-auto'>
+                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div className='d-flex justify-content-center align-items-center bg-secondary vh-100 w-auto m-auto'>
                             <div className='bg-white p-3 rounded w-25'>
                                 <h2>Login</h2>
                                 <form action="" onSubmit={handleSubmit}>
