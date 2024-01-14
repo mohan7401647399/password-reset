@@ -23,12 +23,12 @@ export default function Login() {
 
     return (
         <>
-            <div className='container-fluid'>
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <div className='d-flex justify-content-center align-items-center bg-secondary vh-100 w-auto m-auto'>
-                            <div className='bg-white p-3 rounded w-25'>
-                                <h2>Login</h2>
+            <div className="container-fluid vh-100 bg-secondary">
+                <div className="row justify-content-center">
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                        <div className="card mt-5">
+                            <div className='bg-white p-3 rounded w-auto bg-info'>
+                                <h2 className='d-flex align-content-center justify-content-center'>Login</h2>
                                 <form action="" onSubmit={handleSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="email">
@@ -48,6 +48,8 @@ export default function Login() {
                                 </form>
                                 <p>Don't have an account</p>
                                 <Link to="/forgot-password">Forgot Password</Link>
+                                <br />
+                                <br />
                                 <Link to="/register" className='btn btn-default w-100 bg-light rounded-0 text-decoration-none'>Signup</Link>
                             </div>
                         </div>
