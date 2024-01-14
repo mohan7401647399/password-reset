@@ -100,7 +100,7 @@ userRouter.post('/forgot-password',async (req, res) => {
                 if (!user) {
                     return res.send({ Status: "User not existed" })
                 }
-                const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: "2m" });
+                const token = jwt.sign({ id: user._id.toString() }, process.env.JWT_SECRET_KEY, { expiresIn: "2m" });
                 console.log(token);
 
                 var transporter = nodemailer.createTransport({
