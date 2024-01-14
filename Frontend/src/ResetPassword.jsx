@@ -19,13 +19,12 @@ export default function ResetPassword() {
     }
 
     return (
-
-        <div className='container-fluid'>
-            <div className="row">
-                <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-                        <div className="bg-white p-3 rounded w-25">
-                            <h4>Reset Password</h4>
+        <div className="container-fluid vh-100 bg-secondary">
+            <div className="row justify-content-center">
+                <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                    <div className="card mt-5">
+                        <div className='bg-white p-3 rounded w-auto bg-info'>
+                            <h4 className='d-flex align-content-center justify-content-center'>Reset Password</h4>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="email">
