@@ -91,10 +91,10 @@ userRouter.post("/login", async (req, res) => {
 });
 
 //forgot-password
-userRouter.post('/forgot-password',async (req, res) => {
+userRouter.post('/forgot-password', (req, res) => {
     try {
         const { email } = req.body;
-        await StudentModel.findOne({ email: email })
+         StudentModel.findOne({ email: email })
             .then(user => {
                 console.log(user);
                 if (!user) {
@@ -134,7 +134,7 @@ userRouter.post('/forgot-password',async (req, res) => {
     } catch (error) {
         return res.status(400).json({
             success: false,
-            error: error.message,
+            error: error,
         });
     }
 });
