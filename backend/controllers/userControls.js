@@ -55,9 +55,9 @@ userRouter.post("/login", async (req, res) => {
         console.log(email);
         if (response.email !== email) {
             return res.status(400).json({
-                  success: false,
-                    message: "User does not exist",
-                 })
+                success: false,
+                message: "User does not exist",
+            })
         }
         if (email && password)
             if (response && response._id) {
@@ -94,7 +94,8 @@ userRouter.post("/login", async (req, res) => {
 userRouter.post('/forgot-password', (req, res) => {
     try {
         const { email } = req.body;
-         StudentModel.findOne({ email: email })
+        // this.updatedAt = new Date();
+        StudentModel.findOne({ email: email })
             .then(user => {
                 console.log(user);
                 if (!user) {
@@ -122,10 +123,9 @@ userRouter.post('/forgot-password', (req, res) => {
                     <h2>Click this <a href="https://keen-melomakarona-8c650c.netlify.app/reset-password/${user._id}/${token}">link</a> to set a new password.</h2>
                   `
                 };
-
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
-                        console.log(error.message);
+                        console.log(error);
                     } else {
                         return res.send({ Status: "Success" })
                     }
@@ -140,21 +140,17 @@ userRouter.post('/forgot-password', (req, res) => {
 });
 
 //reset-password
-userRouter.post('/reset-password/:id/:token',async (req, res) => {
+userRouter.post('/reset-password/:id/:token', (req, res) => {
     const { id, token } = req.params
-    const { password } = req.body;
-    const user = await StudentModel.findOne({_id:id});
-    
-    if(!user){
-        return res.json({ status:"User does not exist"})
-    }
+    const { password } = req.body
+
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
         if (err) {
             return res.json({ Status: "Error with token" })
         } else {
             bcrypt.hash(password, 10)
                 .then(hash => {
-                    await StudentModel.findByIdAndUpdate({ _id: id }, { password: hash })
+                    StudentModel.findByIdAndUpdate({ _id: id }, { password: hash })
                         .then(success => res.send({ Status: success }))
                         .catch(err => res.send({ Status: err }))
                 })
@@ -162,7 +158,5 @@ userRouter.post('/reset-password/:id/:token',async (req, res) => {
         }
     })
 });
-
-
 
 module.exports = userRouter;
